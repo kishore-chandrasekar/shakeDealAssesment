@@ -12,7 +12,7 @@ function App() {
   const handleAssignTask = async () => {
     if (taskDesc && teamId) {
       try {
-        const response = await axios.post('http://localhost:3000/assignTask', { taskDesc, teamId });
+        const response = await axios.post('http://localhost:8000/assignTask', { taskDesc, teamId });
         setAssignedMember(response.data.assignedMember);
         setTask(response.data.taskDesc)
         setTaskDesc('')
@@ -26,7 +26,7 @@ function App() {
   };
 
   const getAllTeamsInfo = async () => {
-    let data = await axios.get('http://localhost:3000/getAllTeams')
+    let data = await axios.get('http://localhost:8000/getAllTeams')
     console.log(data)
     setTeams(data.data)
   }
